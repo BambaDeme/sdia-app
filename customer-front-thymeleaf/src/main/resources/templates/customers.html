@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template" >
 <head>
     <meta charset="UTF-8">
     <title>Customers</title>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.2/css/bootstrap.min.css">
 </head>
 <body>
-    <table class="table">
-        <thead>
+
+    <div layout:fragment="content">
+        <table class="table">
+            <thead>
             <tr>
                 <th>ID</th> <th>Name</th> <th>Email</th>
             </tr>
-        </thead>
+            </thead>
 
-        <tbody>
+            <tbody>
             <tr th:each="customer:${customers}">
                 <td th:text="${customer.id}"></td>
                 <td th:text="${customer.name}"></td>
                 <td th:text="${customer.email}"></td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>
